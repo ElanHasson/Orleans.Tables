@@ -7,8 +7,8 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-using Orleans.Grpc.Grains.Row;
 using Orleans.Hosting;
+using Orleans.KeyValueStore.Grains;
 using Orleans.KeyValueStore.Grains.Interfaces;
 
 namespace Orleans.KeyValueStore
@@ -31,22 +31,12 @@ namespace Orleans.KeyValueStore
                     if (ctx.HostingEnvironment.IsDevelopment())
                     {
                         siloBuilder.UseLocalhostClustering();
-                        siloBuilder.AddMemoryGrainStorageAsDefault();
-
-                        siloBuilder.AddMemoryGrainStorage("rowStorage");
-                        siloBuilder.AddMemoryGrainStorage("KeyValueStore");
+                        siloBuilder.AddMemoryGrainStorage("circleStorage");
+                        siloBuilder.AddMemoryGrainStorage("nodeStorage");
                     }
                     else
                     {
                         throw new NotImplementedException("Only setup for development mode.");
-                        // In order to support multiple hosts forming a cluster, they must listen on different ports.
-                        // Use the --InstanceId X option to launch subsequent hosts.
-                        var instanceId = ctx.Configuration.GetValue<int>("InstanceId");
-                        siloBuilder.UseLocalhostClustering(
-                            siloPort: 11111 + instanceId,
-                            gatewayPort: 30000 + instanceId,
-                            primarySiloEndpoint: new IPEndPoint(IPAddress.Loopback, 11111));
-
                     }
 
                     siloBuilder.UseDashboard(options =>
@@ -56,7 +46,7 @@ namespace Orleans.KeyValueStore
                     
                     siloBuilder.ConfigureApplicationParts(parts =>
                     {
-                        parts.AddApplicationPart(typeof(RowDefinitionGrain).Assembly).WithReferences();
+                        parts.AddApplicationPart(typeof(ContainerGrain).Assembly).WithReferences();
                     });
                     
                     

@@ -4,7 +4,6 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Orleans.Grpc.Shared.Services;
 
 namespace Orleans.KeyValueStore
 {
@@ -34,7 +33,7 @@ namespace Orleans.KeyValueStore
                     .AllowAnyHeader()
                     .WithExposedHeaders("Grpc-Status", "Grpc-Message", "Grpc-Encoding", "Grpc-Accept-Encoding");
             }));
-         
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -58,7 +57,7 @@ namespace Orleans.KeyValueStore
             {
                 endpoints.MapDefaultControllerRoute()
                     .RequireCors(cors => cors.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
-                endpoints.MapGrpcService<KeyValueStoreService>().EnableGrpcWeb().RequireCors("AllowAll");
+               // endpoints.MapGrpcService<KeyValueStoreService>().EnableGrpcWeb().RequireCors("AllowAll");
                     
                     
                 

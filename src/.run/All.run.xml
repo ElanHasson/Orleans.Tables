@@ -1,7 +1,7 @@
 ﻿<component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="All" type="CompoundRunConfigurationType">
-    <toRun name="Orleans.KeyValueStore" type="LaunchSettings" />
-    <toRun name="Orleans.KeyValueStore.Blazor" type="LaunchSettings" />
+  <configuration default="false" name="ObjectStorage Console" type="CompoundRunConfigurationType">
+    <toRun name="Orleans.ObjectStorage" type="LaunchSettings" />
+    <toRun name="Orleans.ObjectStorage.TestApp" type="DotNetProject" />
     <method v="2" />
   </configuration>
 </component>
