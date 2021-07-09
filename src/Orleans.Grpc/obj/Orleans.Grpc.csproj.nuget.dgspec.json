@@ -4,6 +4,90 @@
     "C:\\Users\\elan\\source\\repos\\Orleans.KeyValueStore\\src\\Orleans.Grpc\\Orleans.Grpc.csproj": {}
   },
   "projects": {
+    "C:\\Users\\elan\\source\\repos\\Orleans.KeyValueStore\\src\\Orleans.Grpc.Shared\\Orleans.Grpc.Shared.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\elan\\source\\repos\\Orleans.KeyValueStore\\src\\Orleans.Grpc.Shared\\Orleans.Grpc.Shared.csproj",
+        "projectName": "Orleans.Grpc.Shared",
+        "projectPath": "C:\\Users\\elan\\source\\repos\\Orleans.KeyValueStore\\src\\Orleans.Grpc.Shared\\Orleans.Grpc.Shared.csproj",
+        "packagesPath": "C:\\Users\\elan\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\elan\\source\\repos\\Orleans.KeyValueStore\\src\\Orleans.Grpc.Shared\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\elan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {
+              "C:\\Users\\elan\\source\\repos\\Orleans.KeyValueStore\\src\\Orleans.KeyValueStore.Grains.Interfaces\\Orleans.KeyValueStore.Grains.Interfaces.csproj": {
+                "projectPath": "C:\\Users\\elan\\source\\repos\\Orleans.KeyValueStore\\src\\Orleans.KeyValueStore.Grains.Interfaces\\Orleans.KeyValueStore.Grains.Interfaces.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "dependencies": {
+            "Google.Protobuf": {
+              "target": "Package",
+              "version": "[3.17.3, )"
+            },
+            "Grpc.Net.Client": {
+              "target": "Package",
+              "version": "[2.38.0, )"
+            },
+            "Grpc.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.38.1, )"
+            },
+            "Microsoft.Orleans.Core": {
+              "target": "Package",
+              "version": "[3.4.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
     "C:\\Users\\elan\\source\\repos\\Orleans.KeyValueStore\\src\\Orleans.Grpc\\Orleans.Grpc.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -24,16 +108,23 @@
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "net6.0"
+          "net5.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net6.0": {
-            "targetAlias": "net6.0",
-            "projectReferences": {}
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {
+              "C:\\Users\\elan\\source\\repos\\Orleans.KeyValueStore\\src\\Orleans.Grpc.Shared\\Orleans.Grpc.Shared.csproj": {
+                "projectPath": "C:\\Users\\elan\\source\\repos\\Orleans.KeyValueStore\\src\\Orleans.Grpc.Shared\\Orleans.Grpc.Shared.csproj"
+              },
+              "C:\\Users\\elan\\source\\repos\\Orleans.KeyValueStore\\src\\Orleans.KeyValueStore.Grains.Interfaces\\Orleans.KeyValueStore.Grains.Interfaces.csproj": {
+                "projectPath": "C:\\Users\\elan\\source\\repos\\Orleans.KeyValueStore\\src\\Orleans.KeyValueStore.Grains.Interfaces\\Orleans.KeyValueStore.Grains.Interfaces.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -43,12 +134,62 @@
         }
       },
       "frameworks": {
-        "net6.0": {
-          "targetAlias": "net6.0",
+        "net5.0": {
+          "targetAlias": "net5.0",
           "dependencies": {
+            "Google.Protobuf": {
+              "target": "Package",
+              "version": "[3.17.3, )"
+            },
             "Grpc.AspNetCore": {
               "target": "Package",
-              "version": "[2.32.0, )"
+              "version": "[2.38.0, )"
+            },
+            "Grpc.AspNetCore.Web": {
+              "target": "Package",
+              "version": "[2.38.0, )"
+            },
+            "Microsoft.Extensions.DependencyInjection": {
+              "target": "Package",
+              "version": "[5.0.1, )"
+            },
+            "Microsoft.Extensions.DependencyInjection.Abstractions": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "Microsoft.Extensions.Hosting": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "Microsoft.Orleans.CodeGenerator.MSBuild": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.4.3, )"
+            },
+            "Microsoft.Orleans.Core": {
+              "target": "Package",
+              "version": "[3.4.3, )"
+            },
+            "Microsoft.Orleans.OrleansProviders": {
+              "target": "Package",
+              "version": "[3.4.3, )"
+            },
+            "Microsoft.Orleans.Server": {
+              "target": "Package",
+              "version": "[3.4.3, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[5.0.2, )"
+            },
+            "OrleansDashboard": {
+              "target": "Package",
+              "version": "[3.1.0, )"
+            },
+            "System.Runtime.Caching": {
+              "target": "Package",
+              "version": "[5.0.0, )"
             }
           },
           "imports": [
@@ -69,7 +210,73 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100-preview.5.21302.13\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\elan\\source\\repos\\Orleans.KeyValueStore\\src\\Orleans.KeyValueStore.Grains.Interfaces\\Orleans.KeyValueStore.Grains.Interfaces.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\elan\\source\\repos\\Orleans.KeyValueStore\\src\\Orleans.KeyValueStore.Grains.Interfaces\\Orleans.KeyValueStore.Grains.Interfaces.csproj",
+        "projectName": "Orleans.KeyValueStore.Grains.Interfaces",
+        "projectPath": "C:\\Users\\elan\\source\\repos\\Orleans.KeyValueStore\\src\\Orleans.KeyValueStore.Grains.Interfaces\\Orleans.KeyValueStore.Grains.Interfaces.csproj",
+        "packagesPath": "C:\\Users\\elan\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\elan\\source\\repos\\Orleans.KeyValueStore\\src\\Orleans.KeyValueStore.Grains.Interfaces\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\elan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "dependencies": {
+            "Microsoft.Orleans.Core.Abstractions": {
+              "target": "Package",
+              "version": "[3.4.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
         }
       }
     }

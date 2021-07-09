@@ -1,21 +1,24 @@
 syntax = "proto3";
 
-option csharp_namespace = "Orleans.Grpc.Shared";
+option csharp_namespace = "Orleans.Grpc.Shared.Services.Protos";
 
 package KeyValueStore;
 
 
-service RowDefinition {
+service KeyValueStoreService {
   // Sends a greeting
-  rpc SayHello (HelloRequest) returns (HelloReply);
+  rpc AddColumn (AddColumnRequest) returns (AddColumnReply);
 }
 
 // The request message containing the user's name.
-message HelloRequest {
-  string name = 1;
+message AddColumnRequest {
+  bytes UUID = 1;
+  ColumnDefinition Definition = 2;
+  
 }
-
+message ColumnDefinition {
+  string ColumnName = 2;
+}
 // The response message containing the greetings.
-message HelloReply {
-  string message = 1;
+message AddColumnReply {
 }

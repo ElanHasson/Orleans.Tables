@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace Orleans.Grpc.Grains.Row
+namespace Orleans.KeyValueStore.Grains.Interfaces
 {
     public interface IRowDefinitionGrain : IGrainWithStringKey
     {

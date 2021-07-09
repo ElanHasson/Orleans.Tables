@@ -1,4 +1,4 @@
-﻿namespace Orleans.Grpc.Grains.Row
+﻿namespace Orleans.KeyValueStore.Grains.Interfaces
 {
     public class ColumnState
     {

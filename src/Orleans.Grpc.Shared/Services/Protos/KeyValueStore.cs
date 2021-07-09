@@ -9,7 +9,7 @@ using pb = global::Google.Protobuf;
 using pbc = global::Google.Protobuf.Collections;
 using pbr = global::Google.Protobuf.Reflection;
 using scg = global::System.Collections.Generic;
-namespace Orleans.Grpc.Shared.Services {
+namespace Orleans.Grpc.Shared.Services.Protos {
 
   /// <summary>Holder for reflection information generated from Protos/KeyValueStore.proto</summary>
   public static partial class KeyValueStoreReflection {
@@ -24,17 +24,20 @@ namespace Orleans.Grpc.Shared.Services {
     static KeyValueStoreReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChpQcm90b3MvS2V5VmFsdWVTdG9yZS5wcm90bxINS2V5VmFsdWVTdG9yZSIc",
-            "CgxIZWxsb1JlcXVlc3QSDAoEbmFtZRgBIAEoCSIdCgpIZWxsb1JlcGx5Eg8K",
-            "B21lc3NhZ2UYASABKAkyWgoUS2V5VmFsdWVTdG9yZVNlcnZpY2USQgoIU2F5",
-            "SGVsbG8SGy5LZXlWYWx1ZVN0b3JlLkhlbGxvUmVxdWVzdBoZLktleVZhbHVl",
-            "U3RvcmUuSGVsbG9SZXBseUIfqgIcT3JsZWFucy5HcnBjLlNoYXJlZC5TZXJ2",
-            "aWNlc2IGcHJvdG8z"));
+            "ChpQcm90b3MvS2V5VmFsdWVTdG9yZS5wcm90bxINS2V5VmFsdWVTdG9yZSJV",
+            "ChBBZGRDb2x1bW5SZXF1ZXN0EgwKBFVVSUQYASABKAwSMwoKRGVmaW5pdGlv",
+            "bhgCIAEoCzIfLktleVZhbHVlU3RvcmUuQ29sdW1uRGVmaW5pdGlvbiImChBD",
+            "b2x1bW5EZWZpbml0aW9uEhIKCkNvbHVtbk5hbWUYAiABKAkiEAoOQWRkQ29s",
+            "dW1uUmVwbHkyYwoUS2V5VmFsdWVTdG9yZVNlcnZpY2USSwoJQWRkQ29sdW1u",
+            "Eh8uS2V5VmFsdWVTdG9yZS5BZGRDb2x1bW5SZXF1ZXN0Gh0uS2V5VmFsdWVT",
+            "dG9yZS5BZGRDb2x1bW5SZXBseUImqgIjT3JsZWFucy5HcnBjLlNoYXJlZC5T",
+            "ZXJ2aWNlcy5Qcm90b3NiBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Orleans.Grpc.Shared.Services.HelloRequest), global::Orleans.Grpc.Shared.Services.HelloRequest.Parser, new[]{ "Name" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Orleans.Grpc.Shared.Services.HelloReply), global::Orleans.Grpc.Shared.Services.HelloReply.Parser, new[]{ "Message" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::Orleans.Grpc.Shared.Services.Protos.AddColumnRequest), global::Orleans.Grpc.Shared.Services.Protos.AddColumnRequest.Parser, new[]{ "UUID", "Definition" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Orleans.Grpc.Shared.Services.Protos.ColumnDefinition), global::Orleans.Grpc.Shared.Services.Protos.ColumnDefinition.Parser, new[]{ "ColumnName" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Orleans.Grpc.Shared.Services.Protos.AddColumnReply), global::Orleans.Grpc.Shared.Services.Protos.AddColumnReply.Parser, null, null, null, null, null)
           }));
     }
     #endregion
@@ -44,19 +47,19 @@ namespace Orleans.Grpc.Shared.Services {
   /// <summary>
   /// The request message containing the user's name.
   /// </summary>
-  public sealed partial class HelloRequest : pb::IMessage<HelloRequest>
+  public sealed partial class AddColumnRequest : pb::IMessage<AddColumnRequest>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
   #endif
   {
-    private static readonly pb::MessageParser<HelloRequest> _parser = new pb::MessageParser<HelloRequest>(() => new HelloRequest());
+    private static readonly pb::MessageParser<AddColumnRequest> _parser = new pb::MessageParser<AddColumnRequest>(() => new AddColumnRequest());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<HelloRequest> Parser { get { return _parser; } }
+    public static pb::MessageParser<AddColumnRequest> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Orleans.Grpc.Shared.Services.KeyValueStoreReflection.Descriptor.MessageTypes[0]; }
+      get { return global::Orleans.Grpc.Shared.Services.Protos.KeyValueStoreReflection.Descriptor.MessageTypes[0]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -65,55 +68,69 @@ namespace Orleans.Grpc.Shared.Services {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public HelloRequest() {
+    public AddColumnRequest() {
       OnConstruction();
     }
 
     partial void OnConstruction();
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public HelloRequest(HelloRequest other) : this() {
-      name_ = other.name_;
+    public AddColumnRequest(AddColumnRequest other) : this() {
+      uUID_ = other.uUID_;
+      definition_ = other.definition_ != null ? other.definition_.Clone() : null;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public HelloRequest Clone() {
-      return new HelloRequest(this);
+    public AddColumnRequest Clone() {
+      return new AddColumnRequest(this);
     }
 
-    /// <summary>Field number for the "name" field.</summary>
-    public const int NameFieldNumber = 1;
-    private string name_ = "";
+    /// <summary>Field number for the "UUID" field.</summary>
+    public const int UUIDFieldNumber = 1;
+    private pb::ByteString uUID_ = pb::ByteString.Empty;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string Name {
-      get { return name_; }
+    public pb::ByteString UUID {
+      get { return uUID_; }
       set {
-        name_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        uUID_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "Definition" field.</summary>
+    public const int DefinitionFieldNumber = 2;
+    private global::Orleans.Grpc.Shared.Services.Protos.ColumnDefinition definition_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Orleans.Grpc.Shared.Services.Protos.ColumnDefinition Definition {
+      get { return definition_; }
+      set {
+        definition_ = value;
       }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
-      return Equals(other as HelloRequest);
+      return Equals(other as AddColumnRequest);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(HelloRequest other) {
+    public bool Equals(AddColumnRequest other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (Name != other.Name) return false;
+      if (UUID != other.UUID) return false;
+      if (!object.Equals(Definition, other.Definition)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
-      if (Name.Length != 0) hash ^= Name.GetHashCode();
+      if (UUID.Length != 0) hash ^= UUID.GetHashCode();
+      if (definition_ != null) hash ^= Definition.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -130,9 +147,13 @@ namespace Orleans.Grpc.Shared.Services {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (Name.Length != 0) {
+      if (UUID.Length != 0) {
         output.WriteRawTag(10);
-        output.WriteString(Name);
+        output.WriteBytes(UUID);
+      }
+      if (definition_ != null) {
+        output.WriteRawTag(18);
+        output.WriteMessage(Definition);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -143,9 +164,13 @@ namespace Orleans.Grpc.Shared.Services {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (Name.Length != 0) {
+      if (UUID.Length != 0) {
         output.WriteRawTag(10);
-        output.WriteString(Name);
+        output.WriteBytes(UUID);
+      }
+      if (definition_ != null) {
+        output.WriteRawTag(18);
+        output.WriteMessage(Definition);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -156,8 +181,11 @@ namespace Orleans.Grpc.Shared.Services {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
-      if (Name.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Name);
+      if (UUID.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeBytesSize(UUID);
+      }
+      if (definition_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Definition);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -166,12 +194,18 @@ namespace Orleans.Grpc.Shared.Services {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(HelloRequest other) {
+    public void MergeFrom(AddColumnRequest other) {
       if (other == null) {
         return;
       }
-      if (other.Name.Length != 0) {
-        Name = other.Name;
+      if (other.UUID.Length != 0) {
+        UUID = other.UUID;
+      }
+      if (other.definition_ != null) {
+        if (definition_ == null) {
+          Definition = new global::Orleans.Grpc.Shared.Services.Protos.ColumnDefinition();
+        }
+        Definition.MergeFrom(other.Definition);
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -188,7 +222,14 @@ namespace Orleans.Grpc.Shared.Services {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 10: {
-            Name = input.ReadString();
+            UUID = input.ReadBytes();
+            break;
+          }
+          case 18: {
+            if (definition_ == null) {
+              Definition = new global::Orleans.Grpc.Shared.Services.Protos.ColumnDefinition();
+            }
+            input.ReadMessage(Definition);
             break;
           }
         }
@@ -206,7 +247,186 @@ namespace Orleans.Grpc.Shared.Services {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
           case 10: {
-            Name = input.ReadString();
+            UUID = input.ReadBytes();
+            break;
+          }
+          case 18: {
+            if (definition_ == null) {
+              Definition = new global::Orleans.Grpc.Shared.Services.Protos.ColumnDefinition();
+            }
+            input.ReadMessage(Definition);
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  public sealed partial class ColumnDefinition : pb::IMessage<ColumnDefinition>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<ColumnDefinition> _parser = new pb::MessageParser<ColumnDefinition>(() => new ColumnDefinition());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<ColumnDefinition> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Orleans.Grpc.Shared.Services.Protos.KeyValueStoreReflection.Descriptor.MessageTypes[1]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public ColumnDefinition() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public ColumnDefinition(ColumnDefinition other) : this() {
+      columnName_ = other.columnName_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public ColumnDefinition Clone() {
+      return new ColumnDefinition(this);
+    }
+
+    /// <summary>Field number for the "ColumnName" field.</summary>
+    public const int ColumnNameFieldNumber = 2;
+    private string columnName_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string ColumnName {
+      get { return columnName_; }
+      set {
+        columnName_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as ColumnDefinition);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(ColumnDefinition other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (ColumnName != other.ColumnName) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (ColumnName.Length != 0) hash ^= ColumnName.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (ColumnName.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(ColumnName);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (ColumnName.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(ColumnName);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (ColumnName.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(ColumnName);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(ColumnDefinition other) {
+      if (other == null) {
+        return;
+      }
+      if (other.ColumnName.Length != 0) {
+        ColumnName = other.ColumnName;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 18: {
+            ColumnName = input.ReadString();
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 18: {
+            ColumnName = input.ReadString();
             break;
           }
         }
@@ -219,19 +439,19 @@ namespace Orleans.Grpc.Shared.Services {
   /// <summary>
   /// The response message containing the greetings.
   /// </summary>
-  public sealed partial class HelloReply : pb::IMessage<HelloReply>
+  public sealed partial class AddColumnReply : pb::IMessage<AddColumnReply>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
   #endif
   {
-    private static readonly pb::MessageParser<HelloReply> _parser = new pb::MessageParser<HelloReply>(() => new HelloReply());
+    private static readonly pb::MessageParser<AddColumnReply> _parser = new pb::MessageParser<AddColumnReply>(() => new AddColumnReply());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<HelloReply> Parser { get { return _parser; } }
+    public static pb::MessageParser<AddColumnReply> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Orleans.Grpc.Shared.Services.KeyValueStoreReflection.Descriptor.MessageTypes[1]; }
+      get { return global::Orleans.Grpc.Shared.Services.Protos.KeyValueStoreReflection.Descriptor.MessageTypes[2]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -240,55 +460,41 @@ namespace Orleans.Grpc.Shared.Services {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public HelloReply() {
+    public AddColumnReply() {
       OnConstruction();
     }
 
     partial void OnConstruction();
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public HelloReply(HelloReply other) : this() {
-      message_ = other.message_;
+    public AddColumnReply(AddColumnReply other) : this() {
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public HelloReply Clone() {
-      return new HelloReply(this);
-    }
-
-    /// <summary>Field number for the "message" field.</summary>
-    public const int MessageFieldNumber = 1;
-    private string message_ = "";
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string Message {
-      get { return message_; }
-      set {
-        message_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
+    public AddColumnReply Clone() {
+      return new AddColumnReply(this);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
-      return Equals(other as HelloReply);
+      return Equals(other as AddColumnReply);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(HelloReply other) {
+    public bool Equals(AddColumnReply other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (Message != other.Message) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
-      if (Message.Length != 0) hash ^= Message.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -305,10 +511,6 @@ namespace Orleans.Grpc.Shared.Services {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (Message.Length != 0) {
-        output.WriteRawTag(10);
-        output.WriteString(Message);
-      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -318,10 +520,6 @@ namespace Orleans.Grpc.Shared.Services {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (Message.Length != 0) {
-        output.WriteRawTag(10);
-        output.WriteString(Message);
-      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -331,9 +529,6 @@ namespace Orleans.Grpc.Shared.Services {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
-      if (Message.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Message);
-      }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -341,12 +536,9 @@ namespace Orleans.Grpc.Shared.Services {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(HelloReply other) {
+    public void MergeFrom(AddColumnReply other) {
       if (other == null) {
         return;
-      }
-      if (other.Message.Length != 0) {
-        Message = other.Message;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -362,10 +554,6 @@ namespace Orleans.Grpc.Shared.Services {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
-            Message = input.ReadString();
-            break;
-          }
         }
       }
     #endif
@@ -380,10 +568,6 @@ namespace Orleans.Grpc.Shared.Services {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 10: {
-            Message = input.ReadString();
-            break;
-          }
         }
       }
     }

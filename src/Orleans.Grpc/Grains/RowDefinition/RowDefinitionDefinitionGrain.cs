@@ -2,17 +2,18 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
+using Orleans.KeyValueStore.Grains.Interfaces;
 using Orleans.Runtime;
 
 namespace Orleans.Grpc.Grains.Row
 {
-    public class RowDefinitionGrain : Grain, IRowGrain
+    public class RowDefinitionDefinitionGrain : Grain, IRowDefinitionGrain
     {
         private readonly IPersistentState<Dictionary<string, RowColumn>> columns;
-        private readonly ILogger<RowDefinitionGrain> logger;
+        private readonly ILogger<RowDefinitionDefinitionGrain> logger;
         private readonly IPersistentState<RowState> rowState;
 
-        public RowDefinitionGrain(ILogger<RowDefinitionGrain> logger,
+        public RowDefinitionDefinitionGrain(ILogger<RowDefinitionDefinitionGrain> logger,
             [PersistentState("columns", "rowStorage")]
             IPersistentState<Dictionary<string, RowColumn>> columns,
             [PersistentState("row", "rowStorage")] IPersistentState<RowState> rowState

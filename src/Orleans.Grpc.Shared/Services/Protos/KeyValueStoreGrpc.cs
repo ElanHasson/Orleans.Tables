@@ -7,7 +7,7 @@
 
 using grpc = global::Grpc.Core;
 
-namespace Orleans.Grpc.Shared.Services {
+namespace Orleans.Grpc.Shared.Services.Protos {
   public static partial class KeyValueStoreService
   {
     static readonly string __ServiceName = "KeyValueStore.KeyValueStoreService";
@@ -42,20 +42,20 @@ namespace Orleans.Grpc.Shared.Services {
       return parser.ParseFrom(context.PayloadAsNewBuffer());
     }
 
-    static readonly grpc::Marshaller<global::Orleans.Grpc.Shared.Services.HelloRequest> __Marshaller_KeyValueStore_HelloRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Orleans.Grpc.Shared.Services.HelloRequest.Parser));
-    static readonly grpc::Marshaller<global::Orleans.Grpc.Shared.Services.HelloReply> __Marshaller_KeyValueStore_HelloReply = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Orleans.Grpc.Shared.Services.HelloReply.Parser));
+    static readonly grpc::Marshaller<global::Orleans.Grpc.Shared.Services.Protos.AddColumnRequest> __Marshaller_KeyValueStore_AddColumnRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Orleans.Grpc.Shared.Services.Protos.AddColumnRequest.Parser));
+    static readonly grpc::Marshaller<global::Orleans.Grpc.Shared.Services.Protos.AddColumnReply> __Marshaller_KeyValueStore_AddColumnReply = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Orleans.Grpc.Shared.Services.Protos.AddColumnReply.Parser));
 
-    static readonly grpc::Method<global::Orleans.Grpc.Shared.Services.HelloRequest, global::Orleans.Grpc.Shared.Services.HelloReply> __Method_SayHello = new grpc::Method<global::Orleans.Grpc.Shared.Services.HelloRequest, global::Orleans.Grpc.Shared.Services.HelloReply>(
+    static readonly grpc::Method<global::Orleans.Grpc.Shared.Services.Protos.AddColumnRequest, global::Orleans.Grpc.Shared.Services.Protos.AddColumnReply> __Method_AddColumn = new grpc::Method<global::Orleans.Grpc.Shared.Services.Protos.AddColumnRequest, global::Orleans.Grpc.Shared.Services.Protos.AddColumnReply>(
         grpc::MethodType.Unary,
         __ServiceName,
-        "SayHello",
-        __Marshaller_KeyValueStore_HelloRequest,
-        __Marshaller_KeyValueStore_HelloReply);
+        "AddColumn",
+        __Marshaller_KeyValueStore_AddColumnRequest,
+        __Marshaller_KeyValueStore_AddColumnReply);
 
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
     {
-      get { return global::Orleans.Grpc.Shared.Services.KeyValueStoreReflection.Descriptor.Services[0]; }
+      get { return global::Orleans.Grpc.Shared.Services.Protos.KeyValueStoreReflection.Descriptor.Services[0]; }
     }
 
     /// <summary>Base class for server-side implementations of KeyValueStoreService</summary>
@@ -68,7 +68,7 @@ namespace Orleans.Grpc.Shared.Services {
       /// <param name="request">The request received from the client.</param>
       /// <param name="context">The context of the server-side call handler being invoked.</param>
       /// <returns>The response to send back to the client (wrapped by a task).</returns>
-      public virtual global::System.Threading.Tasks.Task<global::Orleans.Grpc.Shared.Services.HelloReply> SayHello(global::Orleans.Grpc.Shared.Services.HelloRequest request, grpc::ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::Orleans.Grpc.Shared.Services.Protos.AddColumnReply> AddColumn(global::Orleans.Grpc.Shared.Services.Protos.AddColumnRequest request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
@@ -106,9 +106,9 @@ namespace Orleans.Grpc.Shared.Services {
       /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
       /// <param name="cancellationToken">An optional token for canceling the call.</param>
       /// <returns>The response received from the server.</returns>
-      public virtual global::Orleans.Grpc.Shared.Services.HelloReply SayHello(global::Orleans.Grpc.Shared.Services.HelloRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual global::Orleans.Grpc.Shared.Services.Protos.AddColumnReply AddColumn(global::Orleans.Grpc.Shared.Services.Protos.AddColumnRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
-        return SayHello(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+        return AddColumn(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
       /// <summary>
       /// Sends a greeting
@@ -116,9 +116,9 @@ namespace Orleans.Grpc.Shared.Services {
       /// <param name="request">The request to send to the server.</param>
       /// <param name="options">The options for the call.</param>
       /// <returns>The response received from the server.</returns>
-      public virtual global::Orleans.Grpc.Shared.Services.HelloReply SayHello(global::Orleans.Grpc.Shared.Services.HelloRequest request, grpc::CallOptions options)
+      public virtual global::Orleans.Grpc.Shared.Services.Protos.AddColumnReply AddColumn(global::Orleans.Grpc.Shared.Services.Protos.AddColumnRequest request, grpc::CallOptions options)
       {
-        return CallInvoker.BlockingUnaryCall(__Method_SayHello, null, options, request);
+        return CallInvoker.BlockingUnaryCall(__Method_AddColumn, null, options, request);
       }
       /// <summary>
       /// Sends a greeting
@@ -128,9 +128,9 @@ namespace Orleans.Grpc.Shared.Services {
       /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
       /// <param name="cancellationToken">An optional token for canceling the call.</param>
       /// <returns>The call object.</returns>
-      public virtual grpc::AsyncUnaryCall<global::Orleans.Grpc.Shared.Services.HelloReply> SayHelloAsync(global::Orleans.Grpc.Shared.Services.HelloRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual grpc::AsyncUnaryCall<global::Orleans.Grpc.Shared.Services.Protos.AddColumnReply> AddColumnAsync(global::Orleans.Grpc.Shared.Services.Protos.AddColumnRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
-        return SayHelloAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+        return AddColumnAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
       /// <summary>
       /// Sends a greeting
@@ -138,9 +138,9 @@ namespace Orleans.Grpc.Shared.Services {
       /// <param name="request">The request to send to the server.</param>
       /// <param name="options">The options for the call.</param>
       /// <returns>The call object.</returns>
-      public virtual grpc::AsyncUnaryCall<global::Orleans.Grpc.Shared.Services.HelloReply> SayHelloAsync(global::Orleans.Grpc.Shared.Services.HelloRequest request, grpc::CallOptions options)
+      public virtual grpc::AsyncUnaryCall<global::Orleans.Grpc.Shared.Services.Protos.AddColumnReply> AddColumnAsync(global::Orleans.Grpc.Shared.Services.Protos.AddColumnRequest request, grpc::CallOptions options)
       {
-        return CallInvoker.AsyncUnaryCall(__Method_SayHello, null, options, request);
+        return CallInvoker.AsyncUnaryCall(__Method_AddColumn, null, options, request);
       }
       /// <summary>Creates a new instance of client from given <c>ClientBaseConfiguration</c>.</summary>
       protected override KeyValueStoreServiceClient NewInstance(ClientBaseConfiguration configuration)
@@ -154,7 +154,7 @@ namespace Orleans.Grpc.Shared.Services {
     public static grpc::ServerServiceDefinition BindService(KeyValueStoreServiceBase serviceImpl)
     {
       return grpc::ServerServiceDefinition.CreateBuilder()
-          .AddMethod(__Method_SayHello, serviceImpl.SayHello).Build();
+          .AddMethod(__Method_AddColumn, serviceImpl.AddColumn).Build();
     }
 
     /// <summary>Register service method with a service binder with or without implementation. Useful when customizing the  service binding logic.
@@ -163,7 +163,7 @@ namespace Orleans.Grpc.Shared.Services {
     /// <param name="serviceImpl">An object implementing the server-side handling logic.</param>
     public static void BindService(grpc::ServiceBinderBase serviceBinder, KeyValueStoreServiceBase serviceImpl)
     {
-      serviceBinder.AddMethod(__Method_SayHello, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Orleans.Grpc.Shared.Services.HelloRequest, global::Orleans.Grpc.Shared.Services.HelloReply>(serviceImpl.SayHello));
+      serviceBinder.AddMethod(__Method_AddColumn, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Orleans.Grpc.Shared.Services.Protos.AddColumnRequest, global::Orleans.Grpc.Shared.Services.Protos.AddColumnReply>(serviceImpl.AddColumn));
     }
 
   }

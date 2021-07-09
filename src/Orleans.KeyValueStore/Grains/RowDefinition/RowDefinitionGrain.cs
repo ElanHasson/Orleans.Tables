@@ -7,13 +7,13 @@ using Orleans.Runtime;
 
 namespace Orleans.Grpc.Grains.Row
 {
-    public class RowDefinitionDefinitionGrain : Grain, IRowDefinitionGrain
+    public class RowDefinitionGrain : Grain, IRowDefinitionGrain
     {
         private readonly IPersistentState<Dictionary<string, RowColumn>> columns;
-        private readonly ILogger<RowDefinitionDefinitionGrain> logger;
+        private readonly ILogger<RowDefinitionGrain> logger;
         private readonly IPersistentState<RowState> rowState;
 
-        public RowDefinitionDefinitionGrain(ILogger<RowDefinitionDefinitionGrain> logger,
+        public RowDefinitionGrain(ILogger<RowDefinitionGrain> logger,
             [PersistentState("columns", "rowStorage")]
             IPersistentState<Dictionary<string, RowColumn>> columns,
             [PersistentState("row", "rowStorage")] IPersistentState<RowState> rowState

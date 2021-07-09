@@ -1,7 +1,7 @@
 ﻿<component name="ProjectRunConfigurationManager">
   <configuration default="false" name="All" type="CompoundRunConfigurationType">
+    <toRun name="Orleans.KeyValueStore" type="LaunchSettings" />
     <toRun name="Orleans.KeyValueStore.Blazor" type="LaunchSettings" />
-    <toRun name="Orleans.Grpc" type="LaunchSettings" />
     <method v="2" />
   </configuration>
 </component>

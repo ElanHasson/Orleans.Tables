@@ -5,17 +5,18 @@ AssemblyName:Orleans.Grpc
 OutputType:Exe
 TargetPath:C:\Users\elan\source\repos\Orleans.KeyValueStore\src\Orleans.Grpc\bin\Debug\net5.0\Orleans.Grpc.dll
 CodeGenOutputFile:C:\Users\elan\source\repos\Orleans.KeyValueStore\src\Orleans.Grpc\obj\Debug\net5.0\Orleans.Grpc.orleans.g.cs
+Compile:C:\Users\elan\source\repos\Orleans.KeyValueStore\src\Orleans.Grpc\Grains\RowDefinition\RowDefinitionDefinitionGrain.cs
 Compile:C:\Users\elan\source\repos\Orleans.KeyValueStore\src\Orleans.Grpc\Program.cs
-Compile:C:\Users\elan\source\repos\Orleans.KeyValueStore\src\Orleans.Grpc\Services\GreeterService.cs
 Compile:C:\Users\elan\source\repos\Orleans.KeyValueStore\src\Orleans.Grpc\Startup.cs
 Reference:C:\Users\elan\.nuget\packages\microsoft.visualstudio.web.codegeneration.design\5.0.2\lib\net5.0\dotnet-aspnet-codegenerator-design.dll
-Reference:C:\Users\elan\.nuget\packages\google.protobuf\3.13.0\lib\netstandard2.0\Google.Protobuf.dll
-Reference:C:\Users\elan\.nuget\packages\grpc.aspnetcore.server.clientfactory\2.32.0\lib\net5.0\Grpc.AspNetCore.Server.ClientFactory.dll
-Reference:C:\Users\elan\.nuget\packages\grpc.aspnetcore.server\2.32.0\lib\net5.0\Grpc.AspNetCore.Server.dll
-Reference:C:\Users\elan\.nuget\packages\grpc.core.api\2.32.0\lib\netstandard2.0\Grpc.Core.Api.dll
-Reference:C:\Users\elan\.nuget\packages\grpc.net.client\2.32.0\lib\net5.0\Grpc.Net.Client.dll
-Reference:C:\Users\elan\.nuget\packages\grpc.net.clientfactory\2.32.0\lib\net5.0\Grpc.Net.ClientFactory.dll
-Reference:C:\Users\elan\.nuget\packages\grpc.net.common\2.32.0\lib\net5.0\Grpc.Net.Common.dll
+Reference:C:\Users\elan\.nuget\packages\google.protobuf\3.17.3\lib\net5.0\Google.Protobuf.dll
+Reference:C:\Users\elan\.nuget\packages\grpc.aspnetcore.server.clientfactory\2.38.0\lib\net5.0\Grpc.AspNetCore.Server.ClientFactory.dll
+Reference:C:\Users\elan\.nuget\packages\grpc.aspnetcore.server\2.38.0\lib\net5.0\Grpc.AspNetCore.Server.dll
+Reference:C:\Users\elan\.nuget\packages\grpc.aspnetcore.web\2.38.0\lib\net5.0\Grpc.AspNetCore.Web.dll
+Reference:C:\Users\elan\.nuget\packages\grpc.core.api\2.37.0\lib\netstandard2.0\Grpc.Core.Api.dll
+Reference:C:\Users\elan\.nuget\packages\grpc.net.client\2.38.0\lib\net5.0\Grpc.Net.Client.dll
+Reference:C:\Users\elan\.nuget\packages\grpc.net.clientfactory\2.38.0\lib\net5.0\Grpc.Net.ClientFactory.dll
+Reference:C:\Users\elan\.nuget\packages\grpc.net.common\2.38.0\lib\net5.0\Grpc.Net.Common.dll
 Reference:C:\Program Files\dotnet\packs\Microsoft.AspNetCore.App.Ref\5.0.0\ref\net5.0\Microsoft.AspNetCore.Antiforgery.dll
 Reference:C:\Program Files\dotnet\packs\Microsoft.AspNetCore.App.Ref\5.0.0\ref\net5.0\Microsoft.AspNetCore.Authentication.Abstractions.dll
 Reference:C:\Program Files\dotnet\packs\Microsoft.AspNetCore.App.Ref\5.0.0\ref\net5.0\Microsoft.AspNetCore.Authentication.Cookies.dll
@@ -161,11 +162,15 @@ Reference:C:\Program Files\dotnet\packs\Microsoft.AspNetCore.App.Ref\5.0.0\ref\n
 Reference:C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\5.0.0\ref\net5.0\mscorlib.dll
 Reference:C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\5.0.0\ref\net5.0\netstandard.dll
 Reference:C:\Users\elan\.nuget\packages\newtonsoft.json\11.0.2\lib\netstandard2.0\Newtonsoft.Json.dll
-Reference:C:\Users\elan\.nuget\packages\microsoft.orleans.core.abstractions\3.4.2\lib\netstandard2.0\Orleans.Core.Abstractions.dll
-Reference:C:\Users\elan\.nuget\packages\microsoft.orleans.core\3.4.2\lib\netcoreapp3.1\Orleans.Core.dll
-Reference:C:\Users\elan\.nuget\packages\microsoft.orleans.runtime.abstractions\3.4.2\lib\netstandard2.0\Orleans.Runtime.Abstractions.dll
-Reference:C:\Users\elan\.nuget\packages\microsoft.orleans.orleansruntime\3.4.2\lib\netcoreapp3.1\Orleans.Runtime.dll
-Reference:C:\Users\elan\.nuget\packages\microsoft.orleans.orleansproviders\3.4.2\lib\netstandard2.0\OrleansProviders.dll
+Reference:C:\Users\elan\.nuget\packages\microsoft.orleans.core.abstractions\3.4.3\lib\netstandard2.0\Orleans.Core.Abstractions.dll
+Reference:C:\Users\elan\.nuget\packages\microsoft.orleans.core\3.4.3\lib\netcoreapp3.1\Orleans.Core.dll
+Reference:C:\Users\elan\source\repos\Orleans.KeyValueStore\src\Orleans.Grpc.Shared\bin\Debug\net5.0\Orleans.Grpc.Shared.dll
+Reference:C:\Users\elan\source\repos\Orleans.KeyValueStore\src\Orleans.KeyValueStore.Grains.Interfaces\bin\Debug\net5.0\Orleans.KeyValueStore.Grains.Interfaces.dll
+Reference:C:\Users\elan\.nuget\packages\microsoft.orleans.runtime.abstractions\3.4.3\lib\netstandard2.0\Orleans.Runtime.Abstractions.dll
+Reference:C:\Users\elan\.nuget\packages\microsoft.orleans.orleansruntime\3.4.3\lib\netcoreapp3.1\Orleans.Runtime.dll
+Reference:C:\Users\elan\.nuget\packages\orleansdashboard.core\3.1.0\lib\netstandard2.0\OrleansDashboard.Core.dll
+Reference:C:\Users\elan\.nuget\packages\orleansdashboard\3.1.0\lib\netcoreapp3.1\OrleansDashboard.dll
+Reference:C:\Users\elan\.nuget\packages\microsoft.orleans.orleansproviders\3.4.3\lib\netstandard2.0\OrleansProviders.dll
 Reference:C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\5.0.0\ref\net5.0\System.AppContext.dll
 Reference:C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\5.0.0\ref\net5.0\System.Buffers.dll
 Reference:C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\5.0.0\ref\net5.0\System.Collections.Concurrent.dll
@@ -327,4 +332,4 @@ Reference:C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\5.0.0\ref\net5
 Reference:C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\5.0.0\ref\net5.0\System.Xml.XPath.XDocument.dll
 Reference:C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\5.0.0\ref\net5.0\WindowsBase.dll
 DefineConstants:TRACE,DEBUG,NET,NET5_0,NETCOREAPP
-InputHash:be1700f6c815310ddc5505a7effa5c31b617089a
+InputHash:ff032795a7c2a5d673fc0db8290868fd0de5d20b
