@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
 using Orleans.Hosting;
@@ -42,13 +43,12 @@ namespace Orleans.ObjectStorage.TestApp
                 await bucket.GetObject<int>($"Item-{i:##,###}");
             }
 
-            await client.Get<KeyValuePair<string,object>>(streamId => bucket.GetAll(streamId),
-                onItemReceived: item =>
-                {
-                    Console.WriteLine($"{item.Key}: {item.Value}");
-                    return Task.CompletedTask;
-                });
-            
+            await foreach (var (key, value) in client.Get<KeyValuePair<string, object>>(streamId => bucket.GetAll(streamId),
+                CancellationToken.None))
+            {
+                Console.WriteLine($"{key} = {value}");
+            }
+            Console.Write("ALL DONE!");
             await Task.Delay(-1);
         }
     }

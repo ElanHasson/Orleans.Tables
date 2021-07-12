@@ -7,28 +7,24 @@ namespace Orleans.KeyValueStore.Grains.Interfaces
 {
     public class ResponseStreamObserver<T> : IAsyncObserver<T>
     {
-        private readonly Func<T, Task> onItemReceived;
-        private bool isCompleted;
+        private readonly Func<T, StreamSequenceToken, Task> onItemReceived;
+        private readonly Func<Task> onCompleted;
+        private readonly Func<Exception, Task> onErrorAsync;
 
-        public ResponseStreamObserver(Func<T, Task> onItemReceived)
+        public ResponseStreamObserver(Func<T, StreamSequenceToken, Task> onItemReceived, Func<Task> onCompleted, Func<Exception, Task> onErrorAsync)
         {
             this.onItemReceived = onItemReceived;
+            this.onCompleted = onCompleted;
+            this.onErrorAsync = onErrorAsync;
         }
 
 
-        public async Task OnNextAsync(T item, StreamSequenceToken token = null)
-        {
-            await onItemReceived(item);
-        }
+        /// <inheritdoc />
+        public  Task OnNextAsync(T item, StreamSequenceToken token = null) => onItemReceived(item, token);
 
-        public async Task OnCompletedAsync() => this.isCompleted = true;
+        /// <inheritdoc />
+        public  Task OnCompletedAsync() => this.onCompleted();
 
-        public bool IsCompleted => isCompleted;
-
-        public Task OnErrorAsync(Exception ex)
-        {
-            Console.WriteLine(ex);
-            return Task.CompletedTask;
-        }
+        public Task OnErrorAsync(Exception ex) => this.onErrorAsync(ex);
     }
 }
