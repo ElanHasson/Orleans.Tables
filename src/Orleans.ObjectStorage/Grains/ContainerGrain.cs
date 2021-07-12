@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
+using System.Timers;
 using ConsistentSharp;
 using Microsoft.Extensions.Logging;
+using Orleans.Concurrency;
 using Orleans.KeyValueStore.Grains.Interfaces;
 using Orleans.Runtime;
 
@@ -64,7 +67,20 @@ namespace Orleans.KeyValueStore.Grains
 
             this.circle.State = this.consistentHash.Circle;
             return Task.CompletedTask;
+        }
+        
+        
+        [AlwaysInterleave]
+        public async Task<ResponseStream> GetAll(Guid responseStreamId)
+        {
+            var streamProvider = GetStreamProvider("nodeResponse");
+            var stream = streamProvider.GetStream<KeyValuePair<string, object>>(responseStreamId, "default");
 
+            var nodeTasks = this.circle.State.Select(n =>
+                this.GrainFactory.GetGrain<INodeGrain>(GetNodeKey(n.Value)).GetAll(responseStreamId));
+            await Task.WhenAll(nodeTasks.ToArray());
+            await stream.OnCompletedAsync();
+            return new ResponseStream(responseStreamId);
         }
     }
 }

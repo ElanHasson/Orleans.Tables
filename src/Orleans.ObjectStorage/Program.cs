@@ -10,6 +10,7 @@ using Microsoft.Extensions.Logging;
 using Orleans.Hosting;
 using Orleans.KeyValueStore.Grains;
 using Orleans.KeyValueStore.Grains.Interfaces;
+using Orleans.Streams;
 
 namespace Orleans.KeyValueStore
 {
@@ -33,6 +34,12 @@ namespace Orleans.KeyValueStore
                         siloBuilder.UseLocalhostClustering();
                         siloBuilder.AddMemoryGrainStorage("circleStorage");
                         siloBuilder.AddMemoryGrainStorage("nodeStorage");
+                        siloBuilder.AddMemoryGrainStorage("PubSubStore");
+                        siloBuilder.AddSimpleMessageStreamProvider("nodeResponse", configurator =>
+                        {
+                            configurator.FireAndForgetDelivery = true;
+                        });
+                        siloBuilder.AddMemoryGrainStorageAsDefault();
                     }
                     else
                     {

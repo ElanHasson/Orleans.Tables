@@ -1,6 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
+using Orleans.Concurrency;
 using Orleans.KeyValueStore.Grains.Interfaces;
 using Orleans.Runtime;
 
@@ -47,5 +49,19 @@ namespace Orleans.KeyValueStore.Grains
         }
 
         public Task<T> GetObject<T>(string key) => this.node.State.TryGetValue(key, out var value) ? Task.FromResult((T)value) : default;
+
+        [AlwaysInterleave]
+        public async Task GetAll(Guid responseStreamId)
+        {
+            
+                var streamProvider = GetStreamProvider("nodeResponse");
+                var stream = streamProvider.GetStream<KeyValuePair<string, object>>(responseStreamId, "default");
+
+                foreach (var @object in this.node.State)
+                {
+                    await stream.OnNextAsync(@object);
+                }
+
+        }
     }
 }
